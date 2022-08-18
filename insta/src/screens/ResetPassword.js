@@ -1,16 +1,10 @@
 import React, { useState} from "react";
-
-
 import { SafeAreaView,StyleSheet,View,Text} from "react-native";
 import { Button,TextInput } from "react-native-paper";
 import CustomInput from "../components/CustomInput";
 import axios from "axios";
 import { useFormik } from 'formik';
 import validations1 from "../components/validationsPassword";
-
-
-
-
 
 const ResetPassword =()=>{
     const [obj,setObj]=useState({
@@ -50,12 +44,10 @@ const ResetPassword =()=>{
     
     return(
         <SafeAreaView  style={styles.View}>
-            
             <CustomInput placeholder="Şifre" 
             value={formik.values.password}
             secureTextEntry={showPassword}
             onChangeText={formik.handleChange('password')}
-           
             right={<TextInput.Icon
               name="eye"
               color={"black"}
@@ -66,7 +58,7 @@ const ResetPassword =()=>{
           }
             />
             <View style={styles.errorMessage}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={{ fontSize:12, color:"red", fontWeight:'600', letterSpacing:0.5, textAlign:'center' }}>{formik.errors.password || formik.touched.password}</Text> 
+                    <Text numberOfLines={2} ellipsizeMode="tail" style={styles.textErrorMesage}>{formik.errors.password || formik.touched.password}</Text> 
             </View>
             <CustomInput placeholder="Şifre Tekrar" 
             value={formik.values.passwordRepeat}
@@ -83,13 +75,10 @@ const ResetPassword =()=>{
           }
             />
             <View style={styles.errorMessage}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={{fontSize:12, color:"red", fontWeight:'600', letterSpacing:0.5, textAlign:'center' }}>{formik.errors.passwordRepeat || formik.touched.passwordRepeat}</Text> 
+                    <Text numberOfLines={2} ellipsizeMode="tail" style={styles.textErrorMesage}>{formik.errors.passwordRepeat || formik.touched.passwordRepeat}</Text> 
             </View>
             <Button onPress={formik.handleSubmit} 
-            
             >Onayla</Button>
-       
-            
         </SafeAreaView>
     )
 }
@@ -104,6 +93,13 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         justifyContent: 'center', 
         marginBottom: 8
+    },
+    textErrorMesage:{
+      fontSize:12, 
+      color:"red",
+      fontWeight:'600', 
+      letterSpacing:0.5, 
+      textAlign:'center' 
     }
    
 })
