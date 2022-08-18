@@ -11,8 +11,6 @@ import Activity from './screens/Activity';
 import Profile from './screens/Profile';
 import Ionic from "react-native-vector-icons/Ionicons"
 import Status from './components/Status';
-import PhonePage from './screens/PhonePage';
-import VerifyPage from './screens/VerifyPage';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import {ThemeProvider} from './context/ThemeContext';
@@ -77,8 +75,9 @@ function Router() {
       <Stack.Navigator screenOptions={{
       headerShown: false,
     }}>
-      <Stack.Screen  name="Home" component={HomeStack} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen  name="Home" component={HomeStack} />
+      
       <Stack.Screen  name="Status" component={Status} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
