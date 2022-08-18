@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
+import {View, Text, Image, TouchableOpacity, TextInput,StyleSheet} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const Post = () => {
+const Post = ({postDescription}) => {
   const postInfo = [
     {
       postTitle: 'arkhamoftheking',
       postPersonImage: require('../images/2.jpg'),
       postImage: require('../images/2.jpg'),
+      postPersonCommentImage:require('../images/1.jpg'),
       likes: 165,
       isLiked: false,
       
@@ -19,13 +20,11 @@ const Post = () => {
         postTitle: 'WonderWOMEN_14',
         postPersonImage: require('../images/7.jpg'),
         postImage: require('../images/7.jpg'),
+        postPersonCommentImage:require('../images/1.jpg'),
         likes: 2765,
         isLiked: false,
-    },
-
-         
+    },     
   ];
-
   return (
     <View>
       {postInfo.map((data, index) => {
@@ -39,16 +38,11 @@ const Post = () => {
               borderBottomWidth: 0.1,
             }}>
             <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: 15,
-              }}>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              style={styles.body}>
+              <View style={styles.contain}>
                 <Image
                   source={data.postPersonImage}
-                  style={{width: 40, height: 40, borderRadius: 100}}
+                  style={styles.postPersonStyle}
                 />
                 <View style={{paddingLeft: 5}}>
                   <Text style={{fontSize: 15, fontWeight: 'bold'}}>
@@ -111,7 +105,7 @@ const Post = () => {
                   fontSize: 14,
                   paddingVertical: 2,
                 }}>
-                Gotham bekle beni :)
+                {postDescription}
               </Text>
               <Text style={{opacity: 0.4, paddingVertical: 2}}>
                 View all comments
@@ -120,7 +114,7 @@ const Post = () => {
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <Image
-                    source={data.postPersonImage}
+                    source={data.postPersonCommentImage}
                     style={{
                       width: 25,
                       height: 25,
@@ -158,3 +152,21 @@ const Post = () => {
 };
 
 export default Post;
+const styles = StyleSheet.create({
+  body:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 15,
+  },
+  contain:{
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  postPersonStyle:{
+    width: 40, 
+    height: 40, 
+    borderRadius: 100
+  }
+
+})
