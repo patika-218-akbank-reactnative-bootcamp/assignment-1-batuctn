@@ -4,14 +4,10 @@ import ThemeContext from "./ThemeContext";
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
   return (
-    
-        <TouchableOpacity onPress={toggleTheme}>
+      <TouchableOpacity onPress={toggleTheme}>
         {theme === "dark" ? <Text>🌞</Text> : <Text>🌙</Text>}
-        </TouchableOpacity>
-      
-   
+      </TouchableOpacity>
   );
 };
 
