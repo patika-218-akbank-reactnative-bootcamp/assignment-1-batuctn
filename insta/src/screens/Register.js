@@ -3,10 +3,9 @@ import {StyleSheet,View} from 'react-native';
 import { Tab, Text, TabView } from '@rneui/themed';
 import CustomInput from '../components/CustomInput';
 
-import PhoneCountryInput from '../components/PhoneCountryInput';
 
 
-export default () => {
+const Register = () => {
 const [index, setIndex] = useState(0);
 
 return (
@@ -35,7 +34,6 @@ return (
     </Tab>
     <TabView value={index} onChange={setIndex} animationType="spring">
       <TabView.Item style={styles.TabViewItem}>
-        <PhoneCountryInput/>
       </TabView.Item>
       <TabView.Item style={styles.TabViewItem}>
       <CustomInput placeholder={"E-posta Adresi"} />
@@ -45,6 +43,8 @@ return (
   </>
 );
 };
+export default Register;
+
 const styles = StyleSheet.create({
   button:{
     backgroundColor:"#B2DFFC",
