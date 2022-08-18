@@ -79,11 +79,8 @@ function Router() {
     }}>
       <Stack.Screen  name="Home" component={HomeStack} />
       <Stack.Screen name="Login" component={Login} />
-      
       <Stack.Screen  name="Status" component={Status} />
       <Stack.Screen name="Register" component={Register} />
-      <Stack.Screen name="PhonePage" component={PhonePage} />
-      <Stack.Screen name="VerifyPage" component={VerifyPage} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       <Stack.Screen name="ResetPassword" component={ResetPassword} />
       </Stack.Navigator>
