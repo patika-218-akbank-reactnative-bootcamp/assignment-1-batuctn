@@ -1,5 +1,4 @@
 import React, { useState} from "react";
-
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView,StyleSheet,View,Text} from "react-native";
 import { Button,TextInput } from "react-native-paper";
@@ -7,8 +6,6 @@ import CustomInput from "../components/CustomInput";
 import axios from "axios";
 import { useFormik } from 'formik';
 import validations from "../components/validationsMail";
-import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification';
-
 
 
 const ForgotPassword =()=>{
@@ -30,17 +27,19 @@ const ForgotPassword =()=>{
     },
     validationSchema: validations,
     onSubmit:(values)=>{
-        try{
-            obj.mail = formik.values.mail
-        axios.post("http://10.110.213.34:9091/auth/forgot_password", obj)
-        console.warn("Şifre yenileme Maili Gönderildi.")
+        //Şifremi unuttum servisi çalışıyor
+        // try{
+        //     obj.mail = formik.values.mail
+        // axios.post("http://10.110.213.34:9091/auth/forgot_password", obj)
+        // console.warn("Şifre yenileme Maili Gönderildi.")
             
-        console.log(obj);
-        navigation.navigate("ResetPassword")
+        // console.log(obj);
+        // navigation.navigate("ResetPassword")
                 
-        }catch(error){
-            console.warn(error)
-        }
+        // }catch(error){
+        //     console.warn(error)
+        // }
+        navigation.navigate("ResetPassword")
     },
     });
    
@@ -55,7 +54,7 @@ const ForgotPassword =()=>{
             />}
             />
             <View style={styles.errorMessage}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={styles.errorText}>{formik.errors.mail || formik.touched.mail}</Text> 
+                <Text numberOfLines={2} ellipsizeMode="tail" style={styles.errorText}>{formik.errors.mail || formik.touched.mail}</Text> 
             </View>
             <CustomInput placeholder="E-mail Tekrar" 
             value={formik.values.mailRepeat}
@@ -66,9 +65,9 @@ const ForgotPassword =()=>{
             />}
             />
             <View style={styles.errorMessage}>
-                    <Text numberOfLines={2} ellipsizeMode="tail" style={styles.errorText}>{formik.errors.mailRepeat || formik.touched.mailRepeat}</Text> 
+                <Text numberOfLines={2} ellipsizeMode="tail" style={styles.errorText}>{formik.errors.mailRepeat || formik.touched.mailRepeat}</Text> 
             </View>
-            <Button  onPress={formik.handleSubmit}>Onayla</Button>
+            <Button onPress={formik.handleSubmit}>Onayla</Button>
             
         </SafeAreaView>
     )
@@ -93,7 +92,6 @@ const styles = StyleSheet.create({
         textAlign:'center' 
 
     }
-   
 })
 export default ForgotPassword;
 
