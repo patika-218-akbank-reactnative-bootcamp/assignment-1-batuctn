@@ -1,12 +1,11 @@
 import React,{useState} from 'react';
-import {StyleSheet,View} from 'react-native';
+import {StyleSheet,Button} from 'react-native';
 import { Tab, Text, TabView } from '@rneui/themed';
 import CustomInput from '../components/CustomInput';
 
 
-
 const Register = () => {
-const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
 return (
   < >
@@ -34,6 +33,7 @@ return (
     </Tab>
     <TabView value={index} onChange={setIndex} animationType="spring">
       <TabView.Item style={styles.TabViewItem}>
+      <CustomInput placeholder={"Telefon Numarası"} />
       </TabView.Item>
       <TabView.Item style={styles.TabViewItem}>
       <CustomInput placeholder={"E-posta Adresi"} />
