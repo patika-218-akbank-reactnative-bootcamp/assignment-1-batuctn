@@ -50,7 +50,6 @@ const Login = () => {
         setUserTeam({...userTeam,userName:text})
       }}
       />
-      
       <CustomInput 
       value={userTeam.password} onChangeText={(text)=>{
         setUserTeam({...userTeam,password:text})
@@ -152,12 +151,11 @@ const styles = StyleSheet.create({
     
   },
   text2:{
-  
-  alignContent:"flex-end",
-   height:50, 
-   textAlign:"center",
-   textAlignVertical: 'center',
-   borderColor:"gray",
+    alignContent:"flex-end",
+    height:50, 
+    textAlign:"center",
+    textAlignVertical: 'center',
+    borderColor:"gray",
     borderTopWidth:1,   
   },
   // LoginButton:{
