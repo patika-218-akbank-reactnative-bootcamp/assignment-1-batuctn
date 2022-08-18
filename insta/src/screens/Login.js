@@ -10,17 +10,17 @@ import axios from 'axios';
 import ThemeSwitcher from '../context/ThemeSwitcher';
 import ThemeContext from "../context/ThemeContext";
 
-
 const Login = () => {
   const { theme } = useContext(ThemeContext);
   const [userTeam, setUserTeam] = useState({
     userName: "",
-    password: "" });
+    password: "" 
+  });
   const [showPassword,setShowPassword]=useState(true)
   const navigation = useNavigation();
 
   const handleLogin = async () => {
-    //backend bağlantısına gerek olmadığı için kaldırıldı.
+    //backend bağlantısına gerek olmadığı için kaldırıldı.Şifresiz Giriş aktifs
   //   try{
   //     const response = await axios.post("http://10.110.213.34:9091/auth/login",userTeam)
       
@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
     fontWeight:"bold"
   },
   button:{
-    
     backgroundColor:"#B2DFFC",
     borderRadius:20,
     width:"75%",
