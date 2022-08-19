@@ -49,82 +49,40 @@ const Status = ({route, navigation}) => {
           }}></Animated.View>
       </View>
       <View
-        style={{
-          padding: 15,
-          flexDirection: 'row',
-          alignItems: 'center',
-          position: 'absolute',
-          top: 12,
-          left: 0,
-          width: '90%',
-        }}>
+        style={styles.header}>
         <View
-          style={{
-            borderRadius: 100,
-            width: 30,
-            height: 30,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+          style={styles.storyLittleİmage}>
           <Image
             source={image}
-            style={{
-              borderRadius: 100,
-              backgroundColor: 'orange',
-              resizeMode: 'cover',
-              width: '92%',
-              height: '92%',
-            }}
+            style={styles.storyImage}
           />
         </View>
         <View
-          style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            width: '100%',
-          }}>
-          <Text style={{color: 'white', fontSize: 15, paddingLeft: 10}}>
+          style={styles.storyUsername}>
+          <Text style={styles.nameText}>
             {name}
           </Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionic
               name="close"
-              style={{fontSize: 20, color: 'white', opacity: 0.6}}
+              style={styles.closed}
             />
           </TouchableOpacity>
         </View>
       </View>
       <Image
         source={image}
-        style={{position: 'absolute', width: '100%', height: 600}}
+        style={styles.imagePossiton}
       />
       <View
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-around',
-          marginVertical: 10,
-          width: '100%',
-        }}>
+        style={styles.sendMessage}>
         <TextInput
           placeholder="send message"
           placeholderTextColor="white"
-          style={{
-            borderColor: 'white',
-            borderRadius: 25,
-            width: '85%',
-            height: 50,
-            paddingLeft: 20,
-            borderWidth: 1,
-            fontSize: 20,
-            color: 'white',
-          }}
+          style={styles.textSendMessage}
         />
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Feather name="navigation" style={{fontSize: 30, color: 'white'}} />
+          <Feather name="navigation" style={styles.gobackFeather} />
         </TouchableOpacity>
       </View>
     </View>
@@ -148,5 +106,72 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     position: 'absolute',
     top: 18,
+  },
+  header: {
+    padding: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 12,
+    left: 0,
+    width: '90%',
+  },
+  storyLittleİmage: {
+    borderRadius: 100,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  storyImage: {
+    borderRadius: 100,
+    backgroundColor: 'orange',
+    resizeMode: 'cover',
+    width: '92%',
+    height: '92%',
+  },
+  storyUsername: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: '100%',
+  },
+  nameText: {
+    color: 'white', 
+    fontSize: 15, 
+    paddingLeft: 10
+  },
+  closed: {
+    fontSize: 20, 
+    color: 'white', 
+    opacity: 0.6
+  },
+  imagePossiton: {
+    position: 'absolute', 
+    width: '100%', 
+    height: 600
+  },
+  sendMessage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginVertical: 10,
+    width: '100%',
+  },
+  textSendMessage: {
+    borderColor: 'white',
+    borderRadius: 25,
+    width: '85%',
+    height: 50,
+    paddingLeft: 20,
+    borderWidth: 1,
+    fontSize: 20,
+    color: 'white',
+  },
+  gobackFeather: {
+    fontSize: 30, 
+    color: 'white'
   },
 });
