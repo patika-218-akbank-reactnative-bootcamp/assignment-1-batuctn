@@ -42,7 +42,7 @@ const Post = ({
                   source={data.postPersonImage}
                   style={styles.postPersonStyle}
                 />
-                <View style={{paddingLeft: 5}}>
+                <View style={styles.padding5}>
                   <Text style={styles.postTitle}>{data.postTitle}</Text>
                 </View>
               </View>
@@ -52,7 +52,7 @@ const Post = ({
               <Image source={data.postImage} style={styles.postImage} />
             </View>
             <View style={styles.postImageBottom}>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={styles.likeView}>
                 <TouchableOpacity onPress={() => setLike(!like)}>
                   <AntDesign
                     name={like ? 'heart' : 'hearto'}
@@ -66,7 +66,7 @@ const Post = ({
                 <TouchableOpacity>
                   <Ionic
                     name="ios-chatbubble-outline"
-                    style={{fontSize: 20, paddingRight: 10}}
+                    style={styles.iosChat}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -75,46 +75,41 @@ const Post = ({
               </View>
               <Feather name="bookmark" style={styles.feather} />
             </View>
-            <View style={{paddingHorizontal: 15}}>
+            <View style={styles.addlike}>
               <Text>
                 Liked by {like ? 'you and' : ''}{' '}
                 {like ? data.likes + 1 : data.likes} others
               </Text>
               <Text
-                style={{
-                  fontWeight: '700',
-                  fontSize: 14,
-                  paddingVertical: 2,
-                }}>
+                style={styles.postDescriptionText}>
                 {postDescription}
               </Text>
-              <Text style={{opacity: 0.4, paddingVertical: 2}}>
+              <Text style={styles.allCommentText}>
                 View all comments
               </Text>
               <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                style={styles.commentImageView}>
+                <View style={styles.commentImageView2}>
                   <Image
                     source={data.postPersonCommentImage}
                     style={styles.postPersonCommentImage}
                   />
                   <TextInput
                     placeholder="Add a comment "
-                    style={{opacity: 0.5}}
                   />
                 </View>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.emojiView}>
                   <Entypo
                     name="emoji-happy"
-                    style={{fontSize: 15, color: 'lightgreen', marginRight: 10}}
+                    style={styles.emojiHappy}
                   />
                   <Entypo
                     name="emoji-neutral"
-                    style={{fontSize: 15, color: 'pink', marginRight: 10}}
+                    style={styles.emojiNaturel}
                   />
                   <Entypo
                     name="emoji-sad"
-                    style={{fontSize: 15, color: 'red'}}
+                    style={styles.emojiSad}
                   />
                 </View>
               </View>
@@ -147,13 +142,32 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
   },
+  padding5: {
+    paddingLeft: 5,
+  },
   postPersonStyle: {
     width: 40,
     height: 40,
     borderRadius: 100,
   },
+  likeView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  iosChat: {
+    fontSize: 20,
+    paddingRight: 10,
+  },
   feather: {
     fontSize: 20,
+  },
+  addlike: {
+    paddingHorizontal: 15,
+  },
+  postDescriptionText: {
+    fontWeight:'700',
+    fontSize: 14,
+    paddingVertical: 2,
   },
   postImageView: {
     position: 'relative',
@@ -178,4 +192,34 @@ const styles = StyleSheet.create({
     backgroundColor: 'orange',
     marginRight: 10,
   },
+  allCommentText: {
+    opacity: 0.4,
+    paddingVertical: 2,
+  },
+  commentImageView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  commentImageView2: {
+    flexDirection: 'row',
+     alignItems: 'center',
+  },
+  emojiView: {
+    flexDirection: 'row',
+     alignItems: 'center',
+  },
+  emojiHappy: {
+    fontSize: 15,
+     color: 'lightgreen',
+      marginRight: 10,
+    },
+  emojiNaturel: {
+    fontSize: 15,
+     color: 'pink',
+      marginRight: 10,
+    },
+  emojiSad: {
+    fontSize: 15,
+     color: 'red',
+    },
 });
