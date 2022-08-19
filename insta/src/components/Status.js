@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
   Animated,
+  StyleSheet
 } from 'react-native';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -37,23 +38,10 @@ const Status = ({route, navigation}) => {
 
   return (
     <View
-      style={{
-        backgroundColor: 'black',
-        height: '100%',
-        position: 'relative',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+      style={styles.body}>
       <StatusBar backgroundColor="black" barStyle="light-content" />
       <View
-        style={{
-          height: 3,
-          width: '95%',
-          borderWidth: 1,
-          backgroundColor: 'gray',
-          position: 'absolute',
-          top: 18,
-        }}>
+        style={styles.storyStick}>
         <Animated.View
           style={{
             height: '100%',
@@ -145,3 +133,22 @@ const Status = ({route, navigation}) => {
 };
 
 export default Status;
+
+const styles = StyleSheet.create({
+  body:{
+    backgroundColor: 'black',
+    height: '100%',
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  storyStick:{
+    height: 3,
+    width: '95%',
+    borderWidth: 1,
+    backgroundColor: 'gray',
+    position: 'absolute',
+    top: 18,
+  }
+
+})
