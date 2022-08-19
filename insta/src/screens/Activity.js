@@ -5,7 +5,7 @@ import React from 'react';
 const Activity = () => {
   return (
     <View>
-      <Text>Activity</Text>
+      <Text>Activity Test</Text>
     </View>
   );
 };
