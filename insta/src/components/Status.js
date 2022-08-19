@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState, useEffect} from 'react';
 import {
   View,
@@ -7,7 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   Animated,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -37,11 +38,9 @@ const Status = ({route, navigation}) => {
   });
 
   return (
-    <View
-      style={styles.body}>
+    <View style={styles.body}>
       <StatusBar backgroundColor="black" barStyle="light-content" />
-      <View
-        style={styles.storyStick}>
+      <View style={styles.storyStick}>
         <Animated.View
           style={{
             height: '100%',
@@ -135,20 +134,19 @@ const Status = ({route, navigation}) => {
 export default Status;
 
 const styles = StyleSheet.create({
-  body:{
+  body: {
     backgroundColor: 'black',
     height: '100%',
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  storyStick:{
+  storyStick: {
     height: 3,
     width: '95%',
     borderWidth: 1,
     backgroundColor: 'gray',
     position: 'absolute',
     top: 18,
-  }
-
-})
+  },
+});

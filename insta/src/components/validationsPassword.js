@@ -1,13 +1,12 @@
-import * as yup from "yup";
+/* eslint-disable prettier/prettier */
+import * as yup from 'yup';
 
 const validations1 = yup.object().shape({
-    password:yup
+  password: yup.string().required('Zorunlu ALAN'),
+  passwordRepeat: yup
     .string()
-    .required("Zorunlu ALAN"),
-    passwordRepeat:yup
-        .string()
-        .oneOf([yup.ref("password"),null],"Şifre eşleşmiyor.")
-        .required("ZORUNLU ALAN"),
-})
+    .oneOf([yup.ref('password'), null], 'Şifre eşleşmiyor.')
+    .required('ZORUNLU ALAN'),
+});
 
 export default validations1;

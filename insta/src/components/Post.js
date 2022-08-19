@@ -1,54 +1,57 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity, TextInput,StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const Post = ({postDescription,likes,postTitle,postPersonImage,postImage}) => {
+const Post = ({
+  postDescription,
+  likes,
+  postTitle,
+  postPersonImage,
+  postImage,
+}) => {
   const postInfo = [
     {
-      postTitle:postTitle,
+      postTitle: postTitle,
       postPersonImage: postPersonImage,
-      postImage:postImage,
-      postPersonCommentImage:require('../images/1.jpg'),
+      postImage: postImage,
+      postPersonCommentImage: require('../images/1.jpg'),
       likes: likes,
       isLiked: false,
-      
-    }    
+    },
   ];
   return (
     <View>
       {postInfo.map((data, index) => {
         const [like, setLike] = useState(data.isLiked);
         return (
-          <View
-            key={index}
-            style={styles.fullBody}>
-            <View
-              style={styles.header}>
+          <View key={index} style={styles.fullBody}>
+            <View style={styles.header}>
               <View style={styles.headerText}>
                 <Image
                   source={data.postPersonImage}
                   style={styles.postPersonStyle}
                 />
                 <View style={{paddingLeft: 5}}>
-                  <Text style={styles.postTitle}>
-                    {data.postTitle}
-                  </Text>
+                  <Text style={styles.postTitle}>{data.postTitle}</Text>
                 </View>
               </View>
               <Feather name="more-vertical" style={styles.feather} />
             </View>
-            <View
-              style={styles.postImageView}>
-              <Image
-                source={data.postImage}
-                style={styles.postImage}
-              />
+            <View style={styles.postImageView}>
+              <Image source={data.postImage} style={styles.postImage} />
             </View>
-            <View
-              style={styles.postImageBottom}>
+            <View style={styles.postImageBottom}>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <TouchableOpacity onPress={() => setLike(!like)}>
                   <AntDesign
@@ -125,56 +128,54 @@ const Post = ({postDescription,likes,postTitle,postPersonImage,postImage}) => {
 
 export default Post;
 const styles = StyleSheet.create({
-  fullBody:{
+  fullBody: {
     paddingBottom: 10,
     borderBottomColor: 'gray',
     borderBottomWidth: 0.1,
   },
-  header:{
+  header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 15,
-    
   },
-  headerText:{
+  headerText: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  postTitle:{
-    fontSize: 15, 
-    fontWeight: 'bold'
+  postTitle: {
+    fontSize: 15,
+    fontWeight: 'bold',
   },
-  postPersonStyle:{
-    width: 40, 
-    height: 40, 
-    borderRadius: 100
+  postPersonStyle: {
+    width: 40,
+    height: 40,
+    borderRadius: 100,
   },
-  feather:{
-    fontSize:20
+  feather: {
+    fontSize: 20,
   },
-  postImageView:{
-      position: 'relative',
-      justifyContent: 'center',
-      alignItems: 'center',
+  postImageView: {
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  postImage:{
-    width: '100%', 
-    height: 400
+  postImage: {
+    width: '100%',
+    height: 400,
   },
-  postImageBottom:{
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingHorizontal: 12,
-      paddingVertical: 15,
+  postImageBottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 15,
   },
-  postPersonCommentImage:{
-      width: 25,
-      height: 25,
-      borderRadius: 100,
-      backgroundColor: 'orange',
-      marginRight: 10,
-  }
-
-})
+  postPersonCommentImage: {
+    width: 25,
+    height: 25,
+    borderRadius: 100,
+    backgroundColor: 'orange',
+    marginRight: 10,
+  },
+});

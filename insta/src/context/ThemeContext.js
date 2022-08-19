@@ -1,18 +1,19 @@
-import React, { useState, createContext } from "react";
+/* eslint-disable prettier/prettier */
+import React, {useState, createContext} from 'react';
 const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-  const [theme,setTheme] = useState("light");
+export const ThemeProvider = ({children}) => {
+  const [theme, setTheme] = useState('light');
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
+    if (theme === 'light') {
+      setTheme('dark');
     } else {
-      setTheme("light");
+      setTheme('light');
     }
   };
   const value = {
     theme,
-    toggleTheme
+    toggleTheme,
   };
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
