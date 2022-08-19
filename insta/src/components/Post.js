@@ -5,25 +5,17 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const Post = ({postDescription}) => {
+const Post = ({postDescription,likes,postTitle,postPersonImage,postImage}) => {
   const postInfo = [
     {
-      postTitle: 'arkhamoftheking',
-      postPersonImage: require('../images/2.jpg'),
-      postImage: require('../images/2.jpg'),
+      postTitle:postTitle,
+      postPersonImage: postPersonImage,
+      postImage:postImage,
       postPersonCommentImage:require('../images/1.jpg'),
-      likes: 165,
+      likes: likes,
       isLiked: false,
       
-    },
-    {
-        postTitle: 'WonderWOMEN_14',
-        postPersonImage: require('../images/7.jpg'),
-        postImage: require('../images/7.jpg'),
-        postPersonCommentImage:require('../images/1.jpg'),
-        likes: 2765,
-        isLiked: false,
-    },     
+    }    
   ];
   return (
     <View>
@@ -32,45 +24,31 @@ const Post = ({postDescription}) => {
         return (
           <View
             key={index}
-            style={{
-              paddingBottom: 10,
-              borderBottomColor: 'gray',
-              borderBottomWidth: 0.1,
-            }}>
+            style={styles.fullBody}>
             <View
-              style={styles.body}>
-              <View style={styles.contain}>
+              style={styles.header}>
+              <View style={styles.headerText}>
                 <Image
                   source={data.postPersonImage}
                   style={styles.postPersonStyle}
                 />
                 <View style={{paddingLeft: 5}}>
-                  <Text style={{fontSize: 15, fontWeight: 'bold'}}>
+                  <Text style={styles.postTitle}>
                     {data.postTitle}
                   </Text>
                 </View>
               </View>
-              <Feather name="more-vertical" style={{fontSize: 20}} />
+              <Feather name="more-vertical" style={styles.feather} />
             </View>
             <View
-              style={{
-                position: 'relative',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+              style={styles.postImageView}>
               <Image
                 source={data.postImage}
-                style={{width: '100%', height: 400}}
+                style={styles.postImage}
               />
             </View>
             <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                paddingHorizontal: 12,
-                paddingVertical: 15,
-              }}>
+              style={styles.postImageBottom}>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <TouchableOpacity onPress={() => setLike(!like)}>
                   <AntDesign
@@ -89,10 +67,10 @@ const Post = ({postDescription}) => {
                   />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  <Feather name="navigation" style={{fontSize: 20}} />
+                  <Feather name="navigation" style={styles.feather} />
                 </TouchableOpacity>
               </View>
-              <Feather name="bookmark" style={{fontSize: 20}} />
+              <Feather name="bookmark" style={styles.feather} />
             </View>
             <View style={{paddingHorizontal: 15}}>
               <Text>
@@ -115,13 +93,7 @@ const Post = ({postDescription}) => {
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <Image
                     source={data.postPersonCommentImage}
-                    style={{
-                      width: 25,
-                      height: 25,
-                      borderRadius: 100,
-                      backgroundColor: 'orange',
-                      marginRight: 10,
-                    }}
+                    style={styles.postPersonCommentImage}
                   />
                   <TextInput
                     placeholder="Add a comment "
@@ -153,20 +125,56 @@ const Post = ({postDescription}) => {
 
 export default Post;
 const styles = StyleSheet.create({
-  body:{
+  fullBody:{
+    paddingBottom: 10,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.1,
+  },
+  header:{
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 15,
+    
   },
-  contain:{
+  headerText:{
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  postTitle:{
+    fontSize: 15, 
+    fontWeight: 'bold'
   },
   postPersonStyle:{
     width: 40, 
     height: 40, 
     borderRadius: 100
+  },
+  feather:{
+    fontSize:20
+  },
+  postImageView:{
+      position: 'relative',
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
+  postImage:{
+    width: '100%', 
+    height: 400
+  },
+  postImageBottom:{
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: 12,
+      paddingVertical: 15,
+  },
+  postPersonCommentImage:{
+      width: 25,
+      height: 25,
+      borderRadius: 100,
+      backgroundColor: 'orange',
+      marginRight: 10,
   }
 
 })
