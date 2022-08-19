@@ -10,10 +10,9 @@ import ThemeContext from "../context/ThemeContext";
 
 const Home = () => {
   const { theme } = useContext(ThemeContext);
-  return (
-    <View style={theme === "dark" ? styles.darkTheme : styles.lightTheme}>
-      <StatusBar backgroundColor="white" barStyle="dark-content" animated={true}/>
-        <View style={styles.navbar}>
+  const Header = ()=>{
+    return(
+      <View style={styles.navbar}>
             <FontAwesome name='plus-square-o' style={styles.font24}/>
             <Text style={styles.textInsta} >
                 Instagram
@@ -23,9 +22,30 @@ const Home = () => {
             <Feather name="navigation" style={styles.font24}/>
             </View>
         </View>
+    )
+  }
+
+  return (
+    <View style={theme === "dark" ? styles.darkTheme : styles.lightTheme}>
+      <StatusBar backgroundColor="white" barStyle="dark-content" animated={true}/>
+        <Header/>
         <ScrollView>
           <Stroies/>
-          <Post/>
+          <Post 
+            postDescription={"Bekle Beni Gotham"} 
+            likes={2132} 
+            postTitle={'arkhamoftheking'} 
+            postPersonImage={require('../images/2.jpg')} 
+            postImage={require('../images/2.jpg')}
+            
+            />
+             <Post 
+            postDescription={"newPost"} 
+            likes={62723} 
+            postTitle={'WonderWOMEN_14'} 
+            postPersonImage={require('../images/7.jpg')} 
+            postImage={require('../images/7.jpg')}
+            />
         </ScrollView>
 
 
